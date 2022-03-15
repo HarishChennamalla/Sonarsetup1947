@@ -13,5 +13,25 @@ pipeline
                 '''
             }
         }
+        stage('two')
+        {
+            parallel
+            {
+                stage('two-one')
+                {
+                    steps
+                    {
+                        sh " echo This is stage two-one"
+                    }
+                }
+                stage('two-two')
+                {
+                    steps
+                    {
+                        sh "echo This is stage two-two"
+                    }
+                }
+            }
+        }
     }
 }
